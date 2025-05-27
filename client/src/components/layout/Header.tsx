@@ -5,25 +5,18 @@ import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { MegaMenu } from './MegaMenu';
 import { Menu, Search, User, ChevronDown } from 'lucide-react';
-import Logo from '@/assets/logo.svg';
+import Logo from '@/assets/new-logo.svg';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export function Header() {
   const [location] = useLocation();
   
-  const { data: user } = useQuery({
-    queryKey: ['/api/auth/user'],
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    retry: false,
-  });
+  // Remove auth query that causes error
+  const user = null; // For now, no authentication
   
   const logout = async () => {
-    try {
-      await apiRequest('POST', '/api/auth/logout', {});
-      window.location.href = '/';
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
+    // Simple logout
+    window.location.href = '/';
   };
 
   return (

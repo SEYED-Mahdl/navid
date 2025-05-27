@@ -91,7 +91,7 @@ export default function Home() {
                 <div className="w-full lg:w-1/2">
                   <div className="rounded-lg overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef" 
+                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" 
                       alt="آکادمی دکتر نوید کلانی" 
                       className="w-full h-[400px] object-cover" 
                     />
