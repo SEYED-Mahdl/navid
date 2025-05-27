@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 14% 11%;
+  --foreground: 210 10% 98%;
+  --muted: 219 14% 22%;
+  --muted-foreground: 215 16% 80%;
+  --popover: 220 14% 11%;
+  --popover-foreground: 210 10% 98%;
+  --card: 219 14% 16%;
+  --card-foreground: 210 10% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --primary: 142 63% 42%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 220 14% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 63% 42%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 142 63% 42%;
+  --radius: 0.5rem;
+  --chart-1: 142 63% 42%; 
+  --chart-2: 142 33% 32%;
+  --chart-3: 142 53% 52%;
+  --chart-4: 142 43% 22%;
+  --chart-5: 142 23% 62%;
+  --sidebar-background: 219 14% 10%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 142 63% 42%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 142 33% 32%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 219 14% 14%;
+  --sidebar-ring: 142 63% 42%;
+}
+
+.dark {
+  --background: 220 14% 11%;
+  --foreground: 210 10% 98%;
+  --muted: 219 14% 22%;
+  --muted-foreground: 215 16% 80%;
+  --popover: 220 14% 11%;
+  --popover-foreground: 210 10% 98%;
+  --card: 219 14% 16%;
+  --card-foreground: 210 10% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --primary: 142 63% 42%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 220 14% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 63% 42%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 142 63% 42%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+  
+  body {
+    @apply font-vazir antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .mega-menu {
+    @apply hidden absolute w-full left-0 right-0 top-[56px] bg-background z-50 py-10 border-t border-border max-h-[calc(100vh-56px)] shadow-lg;
+  }
+  
+  .menu-item:hover .mega-menu {
+    @apply block;
+  }
+  
+  .menu-item-title {
+    @apply text-primary font-bold text-lg border-r-4 border-primary pr-4 mb-6;
+  }
+  
+  .mega-menu-block {
+    @apply block my-3 hover:text-primary transition cursor-pointer;
+  }
+  
+  .stars {
+    direction: ltr;
+    @apply inline-block;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-t from-background/95 to-transparent;
+  }
+  
+  .green-gradient {
+    @apply bg-gradient-to-b from-primary/10 to-primary/30;
+  }
+  
+  .register-input {
+    @apply w-full border-b-2 border-gray-600 bg-transparent py-2 px-2 focus:border-primary focus:outline-none text-white;
+  }
+  
+  .register-input-icon {
+    @apply absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400;
+  }
+  
+  .register-btn {
+    @apply w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-md transition mt-6;
+  }
+  
+  .course-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300;
+  }
+  
+  .course-card-overlay {
+    @apply absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .course-card:hover .course-card-overlay {
+    @apply opacity-100;
+  }
+  
+  .course-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .article-item {
+    @apply border-b border-primary/30 pb-6 mb-6;
+  }
+  
+  .article-title {
+    @apply text-xl md:text-2xl font-bold mb-3 text-foreground;
+  }
+  
+  .article-content {
+    @apply text-sm md:text-base text-muted-foreground mb-4;
+  }
+  
+  .article-link {
+    @apply text-primary flex items-center hover:text-primary/80 transition;
+  }
+}
+
+@layer utilities {
+  .font-vazir {
+    font-family: 'Vazirmatn', sans-serif;
+  }
+}
