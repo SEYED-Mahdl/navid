@@ -11,6 +11,7 @@ import Assessment from "@/pages/Assessment";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Articles from "@/pages/Articles";
+import Admin from "@/pages/Admin";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/articles" component={Articles} />
+      <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
   );
