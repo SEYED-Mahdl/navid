@@ -14,17 +14,17 @@ export function Footer() {
           </div>
           
           <div className="flex space-x-6 space-x-reverse mb-4 md:mb-0">
-            <Link href="/about">
-              <a className="text-muted-foreground hover:text-foreground transition">درباره ما</a>
+            <Link href="/about" className="text-muted-foreground hover:text-foreground transition">
+              درباره ما
             </Link>
-            <Link href="/contact">
-              <a className="text-muted-foreground hover:text-foreground transition">تماس با ما</a>
+            <Link href="/contact" className="text-muted-foreground hover:text-foreground transition">
+              تماس با ما
             </Link>
-            <Link href="/privacy">
-              <a className="text-muted-foreground hover:text-foreground transition">حریم خصوصی</a>
+            <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition">
+              حریم خصوصی
             </Link>
-            <Link href="/faq">
-              <a className="text-muted-foreground hover:text-foreground transition">سوالات متداول</a>
+            <Link href="/faq" className="text-muted-foreground hover:text-foreground transition">
+              سوالات متداول
             </Link>
           </div>
           
