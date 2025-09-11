@@ -13,11 +13,34 @@ export default function CourseDetail() {
   const [match, params] = useRoute('/courses/:id');
   const courseId = params?.id;
 
-  const { data: courses } = useQuery<Course[]>({
+  const { data: courses, isLoading } = useQuery<Course[]>({
     queryKey: ['/api/courses'],
   });
 
   const course = courses?.find(c => c.id === Number(courseId));
+
+  if (isLoading) {
+    return (
+      <>
+        <Helmet>
+          <title>در حال بارگذاری... | آکادمی دکتر نوید کلانی</title>
+        </Helmet>
+        
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          
+          <main className="flex-grow py-12">
+            <div className="container mx-auto px-4 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground">در حال بارگذاری اطلاعات دوره...</p>
+            </div>
+          </main>
+          
+          <Footer />
+        </div>
+      </>
+    );
+  }
 
   if (!course) {
     return (

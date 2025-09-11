@@ -13,11 +13,54 @@ export default function CoursePurchase() {
   const [match, params] = useRoute('/courses/:id/purchase');
   const courseId = params?.id;
 
-  const { data: courses } = useQuery<Course[]>({
+  const { data: courses, isLoading } = useQuery<Course[]>({
     queryKey: ['/api/courses'],
   });
 
   const course = courses?.find(c => c.id === Number(courseId));
+
+  const copyToClipboard = async () => {
+    const paymentInfo = `اطلاعات پرداخت:
+شماره کارت: ۶۲۱۹۸۶۱۹۸۷۸۲۱۴۸۴
+نام صاحب حساب: آقای نوید کلانی`;
+    
+    try {
+      await navigator.clipboard.writeText(paymentInfo);
+      alert('اطلاعات پرداخت در کلیپ‌بورد کپی شد!');
+    } catch (err) {
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = paymentInfo;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert('اطلاعات پرداخت کپی شد!');
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <>
+        <Helmet>
+          <title>در حال بارگذاری... | آکادمی دکتر نوید کلانی</title>
+        </Helmet>
+        
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          
+          <main className="flex-grow py-12">
+            <div className="container mx-auto px-4 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground">در حال بارگذاری اطلاعات دوره...</p>
+            </div>
+          </main>
+          
+          <Footer />
+        </div>
+      </>
+    );
+  }
 
   if (!course) {
     return (
@@ -135,7 +178,7 @@ export default function CoursePurchase() {
                           <CreditCard className="h-4 w-4 text-primary" />
                           <span className="font-medium">شماره کارت</span>
                         </div>
-                        <div className="font-mono text-lg font-bold text-center bg-white dark:bg-gray-700 p-3 rounded border">
+                        <div className="font-mono text-lg font-bold text-center bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 p-3 rounded border">
                           {toPersianNumbers('6219861987821484')}
                         </div>
                       </div>
@@ -145,7 +188,7 @@ export default function CoursePurchase() {
                           <User className="h-4 w-4 text-primary" />
                           <span className="font-medium">نام صاحب حساب</span>
                         </div>
-                        <div className="text-center font-medium bg-white dark:bg-gray-700 p-3 rounded border">
+                        <div className="text-center font-medium bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 p-3 rounded border">
                           آقای نوید کلانی
                         </div>
                       </div>
@@ -169,9 +212,7 @@ export default function CoursePurchase() {
                           بازگشت به دوره
                         </Button>
                       </Link>
-                      <Button className="flex-1" onClick={() => {
-                        alert('اطلاعات پرداخت کپی شد! لطفاً واریز را انجام دهید.');
-                      }}>
+                      <Button className="flex-1" onClick={copyToClipboard}>
                         کپی اطلاعات پرداخت
                       </Button>
                     </div>
