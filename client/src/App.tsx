@@ -12,6 +12,8 @@ import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Articles from "@/pages/Articles";
 import Admin from "@/pages/Admin";
+import CourseDetail from "@/pages/CourseDetail";
+import CoursePurchase from "@/pages/CoursePurchase";
 
 // Service Pages
 import Massage from "@/pages/services/Massage";
@@ -28,6 +30,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/courses" component={Courses} />
+      <Route path="/courses/:id/purchase" component={CoursePurchase} />
+      <Route path="/courses/:id" component={CourseDetail} />
       <Route path="/assessment" component={Assessment} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
