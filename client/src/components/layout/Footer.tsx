@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import Logo from '@/assets/logo.svg';
+import Logo from '@/assets/new-logo.jpg';
 
 export function Footer() {
   return (

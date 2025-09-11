@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
-import Logo from '@/assets/logo.svg';
+import Logo from '@/assets/new-logo.jpg';
 import { User, UserPlus, Mail, Phone, Eye, EyeOff, Lock } from 'lucide-react';
 
 const formSchema = z.object({

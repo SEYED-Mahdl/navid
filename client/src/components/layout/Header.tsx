@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { MegaMenu } from './MegaMenu';
 import { Menu, Search, User, ChevronDown } from 'lucide-react';
-import Logo from '@/assets/new-logo.svg';
+import Logo from '@/assets/new-logo.jpg';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export function Header() {
