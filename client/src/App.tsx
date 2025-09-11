@@ -13,6 +13,16 @@ import Register from "@/pages/Register";
 import Articles from "@/pages/Articles";
 import Admin from "@/pages/Admin";
 
+// Service Pages
+import Massage from "@/pages/services/Massage";
+import MassageApplications from "@/pages/services/massage/Applications";
+import Massagology from "@/pages/services/massage/Massagology";
+import ThaiMassage from "@/pages/services/massage/Thai";
+import ShiatsuMassage from "@/pages/services/massage/Shiatsu";
+import DeepTissueMassage from "@/pages/services/massage/DeepTissue";
+import HotStoneMassage from "@/pages/services/massage/HotStone";
+import TherapeuticMassage from "@/pages/services/massage/Therapeutic";
+
 function Router() {
   return (
     <Switch>
@@ -23,6 +33,17 @@ function Router() {
       <Route path="/register" component={Register} />
       <Route path="/articles" component={Articles} />
       <Route path="/admin" component={Admin} />
+      
+      {/* Massage Services */}
+      <Route path="/services/massage" component={Massage} />
+      <Route path="/services/massage/applications" component={MassageApplications} />
+      <Route path="/services/massage/massagology" component={Massagology} />
+      <Route path="/services/massage/thai" component={ThaiMassage} />
+      <Route path="/services/massage/shiatsu" component={ShiatsuMassage} />
+      <Route path="/services/massage/deep-tissue" component={DeepTissueMassage} />
+      <Route path="/services/massage/hot-stone" component={HotStoneMassage} />
+      <Route path="/services/massage/therapeutic" component={TherapeuticMassage} />
+      
       <Route component={NotFound} />
     </Switch>
   );
